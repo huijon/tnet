@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Javascript Tetris</title>
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="tnet.css" />
+</head> 
+
+<body> 
+  <div id="tetris">
+    <div id="menu">
+      <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>
+      <p><canvas id="upcoming"></canvas></p>
+      <p>score <span id="score">00000</span></p>
+      <p>rows <span id="rows">0</span></p>
+    </div>
+	
+	<div id="canvases">
+	<canvas id="canvas">
+      Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+    </canvas>
+	
+	<canvas id="canvas2">
+      Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+    </canvas>
+	</div>
+	
+	<div id="chat">
+		<textarea id='log' name='log' readonly='readonly'></textarea><br/>
+		<input type='text' id='message' name='message' />
+	</div>
+  </div>
+
+  <!-- tnet js files -->
+  <script src="stats.js"></script>
+  <script src="tnet.js"></script>
+  
+  <!-- websocket js files -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="fancywebsocket.js"></script>
+  <script src="websocket.js"></script>
+  
+</body> 
+</html>

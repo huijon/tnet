@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='UTF-8' />
+	<style>
+		input, textarea {border:1px solid #CCC;margin:0px;padding:0px}
+
+		#body {max-width:800px;margin:auto}
+		#log {width:100%;height:400px}
+		#message {width:100%;line-height:20px}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="fancywebsocket.js"></script>
+	<script src="websocket.js"></script>
+</head>
+
+<body>
+	<div id='body'>
+		<textarea id='log' name='log' readonly='readonly'></textarea><br/>
+		<input type='text' id='message' name='message' />
+	</div>
+</body>
+
+</html>
