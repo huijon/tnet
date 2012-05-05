@@ -54,7 +54,8 @@
         score,         // the current score
         vscore,        // the currently displayed score (it catches up to score in small chunks - like a spinning slot machine)
         rows,          // number of completed rows in the current game
-        step;          // how long before current piece drops by 1 row
+        step,          // how long before current piece drops by 1 row
+		cycle;		   // current game cycle added JH
 
     //-------------------------------------------------------------------------
     // tetris pieces
@@ -131,7 +132,6 @@
     //-------------------------------------------------------------------------
 
     function run() {
-
       //showStats(); // initialize FPS counter
       addEvents(); // attach keydown and resize events
 
@@ -139,6 +139,8 @@
       function frame() {
         now = timestamp();
         update(Math.min(1, (now - last) / 1000.0)); // using requestAnimationFrame have to be able to handle large delta's caused when it 'hibernates' in a background or non-visible tab
+		cycle++;
+		//send('cycle: ' + cycle);
         draw();
         //stats.update();
         last = now;
@@ -212,6 +214,7 @@
 	
     function reset() {
       dt = 0;
+	  cycle = 0; 	//cycle starts at 0 for each game..
       clearActions();
       clearBlocks();
       clearRows();
@@ -229,7 +232,9 @@
         if (dt > step) {
           dt = dt - step;
           drop();
-        } 
+        }
+		if (cycle % 25 == 0)
+			send_data('cycle: ' + cycle);
       }
     };
 
@@ -288,7 +293,7 @@
         setBlock(x, y, current.type);
       });
 	  
-	  send('x: ' + current.x + ' y: ' + current.y + ' dir: ' + current.dir + ' type: ' + printObject(current.type));
+	  //send('x: ' + current.x + ' y: ' + current.y + ' dir: ' + current.dir + ' type: ' + printObject(current.type));
     };
 
     function removeLines() {
