@@ -13,6 +13,12 @@ function send( text ) {
 	Server.send( 'message', text );
 }
 
+function send_data(object){
+	if (object ){
+		Server.send( 'data', object);
+	}
+}	
+
 $(document).ready(function() {
 	log('Connecting...');
 	Server = new FancyWebSocket('ws://127.0.0.1:9300');
@@ -21,7 +27,6 @@ $(document).ready(function() {
 		if ( e.keyCode == 13 && this.value ) {
 			log( 'You: ' + this.value );
 			send( this.value );
-
 			$(this).val('');
 		}
 	});
