@@ -293,7 +293,6 @@
       eachblock(current.type, current.x, current.y, current.dir, function(x, y) {
         setBlock(x, y, current.type);
       });
-	  //send('x: ' + current.x + ' y: ' + current.y + ' dir: ' + current.dir + ' type: ' + printObject(current.type));
     };
 
     function removeLines() {
