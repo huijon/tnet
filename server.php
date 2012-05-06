@@ -15,7 +15,9 @@ function wsOnMessage($clientID, $message, $messageLength, $binary) {
 		$Server->wsClose($clientID);
 		return;
 	}
-
+	
+	$Server->log( "message: $message\nbinary: $binary" );
+	
 	//The speaker is the only person in the room. Don't let them feel lonely.
 	if ( sizeof($Server->wsClients) == 1 )
 		$Server->wsSend($clientID, "There isn't anyone else in the room, but I'll still listen to you. --Your Trusty Server");

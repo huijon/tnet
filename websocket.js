@@ -14,7 +14,7 @@ function send( text ) {
 }
 
 function send_data(object){
-	if (object ){
+	if (object){
 		Server.send( 'data', object);
 	}
 }	
